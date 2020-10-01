@@ -30,6 +30,10 @@ for (let i = 0; i < list_items.length; i++) {
 		list.addEventListener('dragenter', function (e) {
 			e.preventDefault();
 			this.style.backgroundColor = 'rgba(0, 0, 0, 0.2)';
+			//I added a preview of how the item will look in the list that I drag
+			draggedItem.style.backgroundColor = 'rgba(255, 255, 255, 0.5)';
+			draggedItem.style.display = 'block';
+			this.append(draggedItem);
 		});
 
 		list.addEventListener('dragleave', function (e) {
@@ -38,6 +42,8 @@ for (let i = 0; i < list_items.length; i++) {
 
 		list.addEventListener('drop', function (e) {
 			console.log('drop');
+			//and return the color of the item when it is dropped
+			draggedItem.style.backgroundColor = 'rgba(255, 255, 255, 1)';
 			this.append(draggedItem);
 			this.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
 		});
